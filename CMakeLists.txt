@@ -32,4 +32,4 @@ idf_component_register(
     REQUIRES ${A2DP_REQUIRES}
 )
 
-target_compile_options(${COMPONENT_LIB} PUBLIC -DA2DP_LEGACY_I2S_SUPPORT=0 -DA2DP_I2S_AUDIOTOOLS=1)
+target_compile_options(${COMPONENT_LIB} PUBLIC -DA2DP_LEGACY_I2S_SUPPORT=0 -DA2DP_I2S_AUDIOTOOLS=1 -DESP32_CMAKE=1 -Wno-error -Wno-format -fpermissive)
