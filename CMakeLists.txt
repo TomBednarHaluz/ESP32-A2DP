@@ -13,7 +13,7 @@ set(A2DP_REQUIRES bt esp_common freertos hal log nvs_flash driver esp_ringbuf ar
 # BT_A2DP_SEP_NUM_MAX). Each one is added to REQUIRES only if it is actually
 # present as a component (e.g. pulled in via idf_component.yml into
 # managed_components/, or placed in components/) so the build doesn't fail
-# for users who only installed one of the two, or neither.
+# for users who only installed one of the two, or neither.AA
 if(IDF_VERSION_MAJOR GREATER 6 )
     idf_build_get_property(a2dp_component_dirs COMPONENT_DIRS)
     foreach(a2dp_codec codec-helix codec-sbc codec-faad codec-fdk-aac)
@@ -32,4 +32,4 @@ idf_component_register(
     REQUIRES ${A2DP_REQUIRES}
 )
 
-target_compile_options(${COMPONENT_LIB} PUBLIC -DA2DP_LEGACY_I2S_SUPPORT=0 -DA2DP_I2S_AUDIOTOOLS=1)
+target_compile_options(${COMPONENT_LIB} PUBLIC -DA2DP_LEGACY_I2S_SUPPORT=0 -DA2DP_I2S_AUDIOTOOLS=1 -DESP32_CMAKE=1 -Wno-error -Wno-format -fpermissive)

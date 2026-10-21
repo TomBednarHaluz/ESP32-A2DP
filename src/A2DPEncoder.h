@@ -15,7 +15,7 @@
 // Copyright 2020 Phil Schatzmann
 
 #include "config.h"
-
+#include "esp_log.h"
 #if A2DP_MANAGED_ENCODER_SUPPORTED
 
 #include <vector>
